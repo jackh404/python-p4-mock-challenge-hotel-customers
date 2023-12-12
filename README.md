@@ -1,4 +1,4 @@
-# Flask Mock Code Challenge - Hotel Customers
+# Flask Mock Challenge - Hotel Customers
 
 For this assessment, you'll be working with a Hotel Customer domain.
 
