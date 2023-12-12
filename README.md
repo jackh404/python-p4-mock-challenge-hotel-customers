@@ -1,6 +1,6 @@
 # Flask Mock Challenge - Hotel Customers
 
-For this assessment, you'll be working with a Hotel Customer domain.
+For this Mock Code Challenge, you'll be working with a Hotel Customer domain.
 
 In this repo:
 
