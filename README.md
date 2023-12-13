@@ -87,11 +87,15 @@ Return JSON data in the format below:
 [
     {
         "id": 1,
-        "name": "Marriott Hotel"
+        "name": "Wyndham Resort"
     },
     {
         "id": 2,
-        "name": "Hampton Inn"
+        "name": "Disney World Resort"
+    },
+    {
+        "id": 3,
+        "name": "The Chanler at Cliff Walk"
     }
 ]
 ```
@@ -105,7 +109,7 @@ If the `Hotel` exists, return JSON data in the format below:
 ```json
 {
     "id": 1,
-    "name": "Marriott Hotel",
+    "name": "Wyndham Resort",
     "hotel_customers": [
         {
             "id": 1,
@@ -158,7 +162,12 @@ Return JSON data in the format below:
     {
         "id": 2,
         "first_name": "Bob",
-        "last_name": "Smith"
+        "last_name": "Cooper"
+    },
+    {
+        "id": 3,
+        "first_name": "Collin",
+        "last_name": "Davidson"
     }
 ]
 ```
@@ -175,11 +184,11 @@ This route should create a new `HotelCustomer` that is associated with an existi
 }
 ```
 
-If the `HotelCustomer` is created successfully, send back a response with the data related to the `RestaurantPizza`:
+If the `HotelCustomer` is created successfully, send back a response with the data related to the `HotelCustomer`:
 
 ```json
 {
-    "id": 7,
+    "id": 4,
     "rating": 5,
     "hotel_id": 1,
     "customer_id": 2,
@@ -190,7 +199,7 @@ If the `HotelCustomer` is created successfully, send back a response with the da
     "customer": {
         "id": 2,
         "first_name": "Bob",
-        "last_name": "Smith"
+        "last_name": "Cooper"
     }
 }
 ```
