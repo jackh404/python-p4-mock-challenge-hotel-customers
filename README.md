@@ -14,7 +14,7 @@ Depending on your preference, you can either check your API by:
 
 ## Setup
 
-The instructions assume you changed into the `code-challenge` folder **prior** to opening the code editor.
+The instructions assume you changed into the `python-p4-mock-challenge-hotel-customers` folder **prior** to opening the code editor.
 
 To download the dependencies for the backend, run:
 
