@@ -18,9 +18,10 @@ class Hotel(db.Model, SerializerMixin):
     name = db.Column(db.String)
 
     # add relationship
+    hotel_customers = db.relationship('HotelCustomer',back_populates='hotel',cascade = 'all,delete-orphan')
 
     # add serialization rules
-
+    serialize_rules = ('-hotel_customers.hotel',)
     def __repr__(self):
         return f'<Hotel {self.name}>'
 
@@ -33,9 +34,9 @@ class Customer(db.Model, SerializerMixin):
     last_name = db.Column(db.String)
 
     # add relationship
-
+    hotel_customers = db.relationship('HotelCustomer', back_populates='customer', cascade = 'all,delete-orphan')
     # add serialization rules
-
+    serialize_rules = ('-hotel_customers.customer',)
     def __repr__(self):
         return f'<Customer {self.first_name} {self.last_name}>'
 
@@ -45,11 +46,21 @@ class HotelCustomer(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer, nullable=False)
+    hotel_id = db.Column(db.Integer, db.ForeignKey('hotels.id'), nullable=False)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'), nullable=False)
+    
+    @validates('rating')
+    def validate_rating(self, key, rating):
+        if 1 <= rating <= 5:
+            return rating
+        else:
+            raise ValueError("rating must be between 1 and 5")
 
     # add relationships
-
+    hotel = db.relationship('Hotel',back_populates='hotel_customers')
+    customer = db.relationship('Customer',back_populates='hotel_customers')
     # add serialization rules
-
+    serialize_rules = ('-hotel.hotel_customers','customer.hotel_customers')
     # add validation
 
     def __repr__(self):
